@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicasettemp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temp
+  template:
+    metadata:
+      labels:
+        app: temp
+    spec:
+      containers:
+        - name: temp
+          image: narirock2/temperatura_kubdev:v1
+          ports:
+            - containerPort: 8080
